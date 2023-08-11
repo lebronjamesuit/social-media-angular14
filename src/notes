@@ -3,3 +3,5 @@ sudo npm install -g @angular/cli@14.2.12
 ng g c header
 
 ng g c auth/signup
+
+ng generate service auth/shared/auth 
