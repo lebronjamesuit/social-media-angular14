@@ -4,6 +4,7 @@ import { SignupRequestPayload } from '../signup/signup-request.payload';
 import { Observable, map } from 'rxjs';
 import { LoginRequestPayload } from '../login/login.request.payload';
 import { LoginResponsePayload } from '../login/login.response.payload';
+import { LocalStorageService } from 'ngx-webstorage';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,10 @@ export class AuthService {
 
   hostPort : String
   
-  constructor(private httpClient : HttpClient) {
+  constructor(private httpClient : HttpClient, 
+    private localStorageService:LocalStorageService) {
+    
+     
     this.hostPort = "http://localhost:8600";
    }
  
@@ -29,8 +33,13 @@ export class AuthService {
     
     return this.httpClient.post<LoginResponsePayload>(url, loginRequestPayload)
     .pipe( map(data => {
-        console.log(data.accessToken);
-        console.log(data.refreshToken);
+  
+        this.localStorageService.store("accessToken",data.accessToken);
+        this.localStorageService.store("refreshToken",data.refreshToken);
+        this.localStorageService.store("accessTokenExpiresAt",data.accessTokenExpiresAt);
+        this.localStorageService.store("refreshTokenExpiresAt",data.refreshTokenExpiresAt);
+        this.localStorageService.store("username",data.username);
+       
         return true;
     }))  
   
