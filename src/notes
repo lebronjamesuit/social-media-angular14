@@ -5,3 +5,5 @@ ng g c header
 ng g c auth/signup
 
 ng generate service auth/shared/auth 
+
+ng generate c auth/login
