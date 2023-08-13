@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SignupRequestPayload } from '../signup/signup-request.payload';
-import { Observable, map } from 'rxjs';
+import { Observable, map , of} from 'rxjs';
 import { LoginRequestPayload } from '../login/login.request.payload';
 import { LoginResponsePayload } from '../login/login.response.payload';
 import { LocalStorageService } from 'ngx-webstorage';
@@ -11,38 +11,37 @@ import { LocalStorageService } from 'ngx-webstorage';
 })
 export class AuthService {
 
-  hostPort : String
-  
-  constructor(private httpClient : HttpClient, 
-    private localStorageService:LocalStorageService) {
-    
-     
-    this.hostPort = "http://localhost:8600";
-   }
- 
+  hostPort: String
 
-  signupHandleHTTP(signupRequestPayload: SignupRequestPayload) : Observable<any> {
-    console.log("signupHandleHTTP");
-    var url = this.hostPort+ "/api/auth/signup";
-    return this.httpClient.post(url, signupRequestPayload,{responseType: 'text'});
+  constructor(private httpClient: HttpClient,
+    private localStorageService: LocalStorageService) {
+
+
+    this.hostPort = "http://localhost:8600";
   }
 
-  loginHandleHTTP(loginRequestPayload :LoginRequestPayload): Observable<true>{
+  signupHandleHTTP(signupRequestPayload: SignupRequestPayload): Observable<any> {
+    console.log("signupHandleHTTP");
+    var url = this.hostPort + "/api/auth/signup";
+    return this.httpClient.post(url, signupRequestPayload, { responseType: 'text' });
+  }
+
+  loginHandleHTTP(loginRequestPayload: LoginRequestPayload): Observable<any> {
     console.log("loginHandleHTTP");
-    var url = this.hostPort+ "/api/auth/login";
-    
+    var url = this.hostPort + "/api/auth/login";
+
     return this.httpClient.post<LoginResponsePayload>(url, loginRequestPayload)
-    .pipe( map(data => {
-  
-        this.localStorageService.store("accessToken",data.accessToken);
-        this.localStorageService.store("refreshToken",data.refreshToken);
-        this.localStorageService.store("accessTokenExpiresAt",data.accessTokenExpiresAt);
-        this.localStorageService.store("refreshTokenExpiresAt",data.refreshTokenExpiresAt);
-        this.localStorageService.store("username",data.username);
-       
-        return true;
-    }))  
-  
-     }
+      .pipe(map(data => {
+
+        this.localStorageService.store("accessToken", data.accessToken);
+        this.localStorageService.store("refreshToken", data.refreshToken);
+        this.localStorageService.store("accessTokenExpiresAt", data.accessTokenExpiresAt);
+        this.localStorageService.store("refreshTokenExpiresAt", data.refreshTokenExpiresAt);
+        this.localStorageService.store("username", data.username);
+
+        return of();
+      }))
+
+  }
 
 }

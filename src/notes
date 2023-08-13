@@ -8,5 +8,11 @@ ng g c auth/signup
 ng generate service auth/shared/auth 
 ng generate c auth/login
 
-# Install ngx-webstorage
-sudo npm install --save ngx-webstorage --legacy-peer-deps
+# Install Components from NPM
+
+  # LocalStorage
+  sudo npm install --save ngx-webstorage --legacy-peer-deps
+
+  # sending notification
+  sudo npm install ngx-toastr@15.2.2  --save --legacy-peer-deps
+  sudo npm install @angular/animations --save --force
