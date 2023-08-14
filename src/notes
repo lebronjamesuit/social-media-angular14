@@ -2,11 +2,13 @@
 # Install CLI
 sudo npm install -g @angular/cli@14.2.12
 
-#Component
+#Component and service
 ng g c header
 ng g c auth/signup
 ng generate service auth/shared/auth 
 ng generate c auth/login
+ng g c home
+ng generate service shared/post
 
 # Install Components from NPM
 
