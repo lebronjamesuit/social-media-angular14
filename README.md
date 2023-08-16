@@ -2,6 +2,11 @@
 
 # Deployment: 
 
+CloudFront
+
+https://d26q31pmxe2fsg.cloudfront.net/
+
+
 AWS S3 
 
 http://james-bucket-s3-social-media.s3-website.eu-west-2.amazonaws.com/
