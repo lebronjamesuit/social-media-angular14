@@ -1,16 +1,5 @@
 # ConfessionAngular -  Angular CLI version 14.2.12.
 
-# Deployment: 
-
-CloudFront
-
-https://d26q31pmxe2fsg.cloudfront.net/
-
-
-AWS S3 
-
-http://james-bucket-s3-social-media.s3-website.eu-west-2.amazonaws.com/
-
 
 ## Code scaffolding
 
@@ -24,7 +13,23 @@ http://james-bucket-s3-social-media.s3-website.eu-west-2.amazonaws.com/
     - ng g service shared/post
     - npm install --save ngx-webstorage --legacy-peer-deps
     - npm install ngx-toastr@15.2.2  --save --legacy-peer-deps
-    - npm install @angular/animations --save --force
+    - npm install @angular/animations --save --force 
+
+
+ # Deployment: 
+
+<img width="618" alt="Screenshot 2023-08-16 at 12 24 29" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/4687ce21-f771-4057-a2d4-82e1e0505859">
+
+
+-  Use CloudFront: free HTTPS, cached system and Cloudfront edge locations world wide.
+  
+    https://d26q31pmxe2fsg.cloudfront.net/
+   
+-  AWS S3
+  
+    http://james-bucket-s3-social-media.s3-website.eu-west-2.amazonaws.com/
+
+
 
 
 ## Build
@@ -32,8 +37,7 @@ http://james-bucket-s3-social-media.s3-website.eu-west-2.amazonaws.com/
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 # Sign up
-
-<img width="1280" alt="1" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/74102e14-3a15-451e-81b0-6f8135c1e779">
+<img width="1280" alt="Screenshot 2023-08-16 at 12 33 27" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/08268e0f-3b04-484d-98fa-7762e5f2d113">
 <img width="954" alt="2" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/80f05399-74e1-40cf-910c-f7a2a6b37d4a">
 <img width="1280" alt="3" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/fbdea380-6cc4-4919-80a7-d8914ba9d11d">
 
