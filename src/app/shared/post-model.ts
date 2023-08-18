@@ -1,5 +1,6 @@
 
 export interface PostModel {
+commentNum: any;
     id: number;
     postName: string;
     url: string;

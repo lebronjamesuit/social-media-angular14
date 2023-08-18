@@ -18,3 +18,19 @@ ng generate service shared/post
   # sending notification
   sudo npm install ngx-toastr@15.2.2  --save --legacy-peer-deps
   sudo npm install @angular/animations --save --force
+
+
+# Font
+sudo npm install @fortawesome/fontawesome-svg-core --force
+sudo npm install @fortawesome/free-solid-svg-icons --force
+sudo npm i @fortawesome/angular-fontawesome@0.11.1 --force
+
+ng g c shared/post-tile
+ng g c shared/vote-button
+ng g c shared/side-bar
+ng g c shared/subreddit-side-bar
+
+ng g s subreddit/subreddit
+
+ng g c subreddit/create-subreddit
+ng g c post/create-post

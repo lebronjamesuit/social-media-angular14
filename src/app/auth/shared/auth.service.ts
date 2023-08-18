@@ -22,6 +22,9 @@ export class AuthService {
   constructor(private httpClient: HttpClient,
     private localStorageService: LocalStorageService) {
     this.hostPort = "http://localhost:8600";
+    // Pro
+    //this.hostPort = "http://jamesvo.eu-west-2.elasticbeanstalk.com";
+    //this.hostPort = "http://confession.eu-west-2.elasticbeanstalk.com";
   }
 
   signupHandleHTTP(signupRequestPayload: SignupRequestPayload): Observable<any> {
