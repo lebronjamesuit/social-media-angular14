@@ -3,17 +3,49 @@
 
 ## Code scaffolding
 
-  # Tools Components and services
-    - npm install -g @angular/cli@14.2.12   
-    - ng g component header
-    - ng g c auth/signup
-    - ng g c auth/login
-    - ng g c home
-    - ng g service auth/shared/auth 
-    - ng g service shared/post
-    - npm install --save ngx-webstorage --legacy-peer-deps
-    - npm install ngx-toastr@15.2.2  --save --legacy-peer-deps
-    - npm install @angular/animations --save --force 
+      # Nodes modules
+         # Install CLI
+      sudo npm install -g @angular/cli@14.2.12
+    
+    
+      # LocalStorage
+      sudo npm install --save ngx-webstorage --legacy-peer-deps
+    
+      # sending notification
+      sudo npm install ngx-toastr@15.2.2  --save --legacy-peer-deps
+      sudo npm install @angular/animations --save --force
+    
+    
+      # Font
+      sudo npm install @fortawesome/fontawesome-svg-core --force
+      sudo npm install @fortawesome/free-solid-svg-icons --force
+      sudo npm i @fortawesome/angular-fontawesome@0.11.1 --force
+      sudo npm install --save  @ng-bootstrap/ng-bootstrap --force
+      npm install --save @tinymce/tinymce-angular
+      ng add @angular/localize
+    
+    
+      #Component and service
+      ng g c header
+      ng g c auth/signup
+      ng generate service auth/shared/auth 
+      ng generate c auth/login
+      ng g c home
+      ng generate service shared/post
+      ng g c shared/post-tile
+      ng g c shared/vote-button
+      ng g c shared/side-bar
+      ng g c shared/subreddit-side-bar
+      ng g s subreddit/subreddit
+      ng g c subreddit/create-subreddit
+      ng g c post/create-post
+      ng g component post/view-post
+      ng g s comment/comment
+      ng g c auth/user-profile
+      ng g s shared/vote
+    
+      # Build and deploy
+      ng build --configuration production
 
 
  # Deployment: 
@@ -23,18 +55,13 @@
 
 -  Use CloudFront: free HTTPS, cached system and Cloudfront edge locations world wide.
   
-    https://d26q31pmxe2fsg.cloudfront.net/
+        https://d26q31pmxe2fsg.cloudfront.net/
+    
+        username/password: user1 / user1password
+
    
 -  AWS S3
   
-    http://james-bucket-s3-social-media.s3-website.eu-west-2.amazonaws.com/
-
-
-
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 # Sign up
 <img width="1280" alt="Screenshot 2023-08-16 at 12 33 27" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/08268e0f-3b04-484d-98fa-7762e5f2d113">
