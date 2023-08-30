@@ -15,12 +15,8 @@ export class TokenInterceptor implements HttpInterceptor {
     }
 
     intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-        
-        console.log(" intercept request now");
-        console.log(this.authService.getAccessToken());
-
+               
         const accessToken = this.authService.getAccessToken();
-
         if(accessToken && !req.url.includes("auth")){
             req = this.addAccessToken(accessToken, req);
             return next.handle(req).pipe(catchError(error => {
@@ -31,21 +27,21 @@ export class TokenInterceptor implements HttpInterceptor {
                 }
             }));
         }
-         
-       return  next.handle(req).pipe(
-            catchError(this.handleCommonError) // then handle other errors 500...
-        );   
+    
+       return  next.handle(req);
+    //    .pipe(
+    //         //catchError(this.handleCommonError) // then handle other errors 500...
+    //     );   
        
     }
     
-    private handleCommonError(error: HttpErrorResponse ) {
-         if (error.status === 0) {
-          console.error('An error occurred:', error.error);
+    private handleCommonError(errorResponse: HttpErrorResponse ) {
+         if (errorResponse.status === 0) {
+          console.error('An error occurred:', errorResponse.error);
         } else {
-          console.error(
-            `Backend returned code ${error.status}, body was: `, error.error);
+          console.error(`Backend returned code ${errorResponse.status}, body was: `, errorResponse.message);
         }
-        return throwError(() => new Error('Something bad happened; please try again later.'));
+        return throwError(() => new Error(JSON.parse(errorResponse.error).message));
       }
 
     private addAccessToken(accessToken: String, req: HttpRequest<any>) :HttpRequest<any> {
@@ -57,12 +53,14 @@ export class TokenInterceptor implements HttpInterceptor {
     private handleExpireAccessToken(req: HttpRequest<any>, next: HttpHandler)
     : Observable<HttpEvent<any>> {
     
+            console.log('Automatically initiates a request for a new access token since the current one expires.');
             this.refreshTokenSubject.next(null);
             return this.authService.performRefreshToken()
             .pipe(switchMap(
                     (loginResponsePayload: LoginResponsePayload) => {
                     this.refreshTokenSubject.next(loginResponsePayload.accessToken);
                     return next.handle(this.addAccessToken(loginResponsePayload.accessToken, req));
+
                  }))
         
     }

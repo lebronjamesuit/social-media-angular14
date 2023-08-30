@@ -1,6 +1,5 @@
 
 export interface PostModel {
-commentNum: any;
     id: number;
     postName: string;
     url: string;
@@ -10,4 +9,6 @@ commentNum: any;
     subredditName: string;
     commentCount: number;
     duration: string;
+    upVote: boolean;
+    downVote: boolean;
 }

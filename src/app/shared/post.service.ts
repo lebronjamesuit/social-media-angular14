@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { Observable, first, firstValueFrom } from 'rxjs';
 import { PostModel } from './post-model';
 import { CreatePostPayload } from '../post/create-post/create-post-payload';
 import { GlobalVariable } from '../globlal-variable';
@@ -24,15 +24,15 @@ export class PostService {
   }
 
   createPost(postPayload: CreatePostPayload): Observable<any> {
-    return this.http.post(this.hostPort+ '/api/posts/', postPayload);
+    return this.http.post(this.hostPort+ '/api/v1/posts', postPayload);
   }
 
-  getPost(id: number): Observable<PostModel> {
-    return this.http.get<PostModel>(this.hostPort+ '/api/posts/' + id);
+  getPost(id: string): Observable<PostModel> {
+    return this.http.get<PostModel>(this.hostPort+ '/api/v1/posts/' + id);
   }
 
   getAllPostsByUser(name: string): Observable<PostModel[]> {
-    return this.http.get<PostModel[]>(this.hostPort+ '/api/posts/by-user/' + name);
+    return this.http.get<PostModel[]>(this.hostPort+ '/api/v1/posts/by-user/' + name);
   }
 
 }

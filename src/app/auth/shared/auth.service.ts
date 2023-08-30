@@ -1,15 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SignupRequestPayload } from '../signup/signup-request.payload';
 import { Observable, map , of, tap} from 'rxjs';
 import { LoginRequestPayload } from '../login/login.request.payload';
 import { LoginResponsePayload } from '../login/login.response.payload';
 import { LocalStorageService } from 'ngx-webstorage';
+import { GlobalVariable } from '../../globlal-variable';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+
+  @Output() loggedIn: EventEmitter<boolean> = new EventEmitter();
+  @Output() username: EventEmitter<string> = new EventEmitter();
 
   hostPort: String;
 
@@ -21,20 +25,17 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient,
     private localStorageService: LocalStorageService) {
-    this.hostPort = "http://localhost:8600";
-    // Pro
-    //this.hostPort = "http://jamesvo.eu-west-2.elasticbeanstalk.com";
-    //this.hostPort = "http://confession.eu-west-2.elasticbeanstalk.com";
+    this.hostPort =  GlobalVariable.API_ENDPOINTS
+
   }
 
   signupHandleHTTP(signupRequestPayload: SignupRequestPayload): Observable<any> {
-    console.log("signupHandleHTTP");
     var url = this.hostPort + "/api/auth/signup";
     return this.httpClient.post(url, signupRequestPayload, { responseType: 'text' });
   }
 
   loginHandleHTTP(loginRequestPayload: LoginRequestPayload): Observable<any> {
-    console.log("loginHandleHTTP");
+   
     var url = this.hostPort + "/api/auth/login";
 
     return this.httpClient.post<LoginResponsePayload>(url, loginRequestPayload)
@@ -46,9 +47,32 @@ export class AuthService {
         this.localStorageService.store("refreshTokenExpiresAt", data.refreshTokenExpiresAt);
         this.localStorageService.store("username", data.username);
 
+        this.loggedIn.emit(true);
+        this.username.emit(data.username);
+
         return of();
       }))
 
+  }
+
+  logoutHandleHTTP(): void {
+    this.httpClient.post<LoginResponsePayload>(this.hostPort + '/api/auth/logout', this.refreshTokenPayload)
+    .subscribe({
+      next: (v) => {
+        console.log(v);
+      
+      },
+      error: (e) => {
+        console.error(e);
+      },
+      complete: () => console.info('log out complete') 
+    });
+
+    this.localStorageService.clear('accessToken');
+    this.localStorageService.clear('refreshToken');
+    this.localStorageService.clear('accessTokenExpiresAt');
+    this.localStorageService.clear('refreshTokenExpiresAt');
+    this.localStorageService.clear("username");
   }
 
   getUserName() {
@@ -88,5 +112,8 @@ export class AuthService {
 
   }
     
+  isLoggedIn(): boolean {
+    return this.getAccessToken() != null;
+  }
 
 }

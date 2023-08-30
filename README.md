@@ -1,19 +1,57 @@
 # ConfessionAngular -  Angular CLI version 14.2.12.
 
+    d26q31pmxe2fsg.cloudfront.net
+    Guest account:  username / password  =>   user1 / user1password
+
+Please note that: 
+-   CloundFront use Amazon SSL Certificate
+-   Backend use Self-sign SSL Certificate
 
 ## Code scaffolding
 
-  # Tools Components and services
-    - npm install -g @angular/cli@14.2.12   
-    - ng g component header
-    - ng g c auth/signup
-    - ng g c auth/login
-    - ng g c home
-    - ng g service auth/shared/auth 
-    - ng g service shared/post
-    - npm install --save ngx-webstorage --legacy-peer-deps
-    - npm install ngx-toastr@15.2.2  --save --legacy-peer-deps
-    - npm install @angular/animations --save --force 
+      # Nodes modules
+         # Install CLI
+      sudo npm install -g @angular/cli@14.2.12
+    
+    
+      # LocalStorage
+      sudo npm install --save ngx-webstorage --legacy-peer-deps
+    
+      # sending notification
+      sudo npm install ngx-toastr@15.2.2  --save --legacy-peer-deps
+      sudo npm install @angular/animations --save --force
+    
+    
+      # Font
+      sudo npm install @fortawesome/fontawesome-svg-core --force
+      sudo npm install @fortawesome/free-solid-svg-icons --force
+      sudo npm i @fortawesome/angular-fontawesome@0.11.1 --force
+      sudo npm install --save  @ng-bootstrap/ng-bootstrap --force
+      npm install --save @tinymce/tinymce-angular
+      ng add @angular/localize
+    
+    
+      #Component and service
+      ng g c header
+      ng g c auth/signup
+      ng generate service auth/shared/auth 
+      ng generate c auth/login
+      ng g c home
+      ng generate service shared/post
+      ng g c shared/post-tile
+      ng g c shared/vote-button
+      ng g c shared/side-bar
+      ng g c shared/subreddit-side-bar
+      ng g s subreddit/subreddit
+      ng g c subreddit/create-subreddit
+      ng g c post/create-post
+      ng g component post/view-post
+      ng g s comment/comment
+      ng g c auth/user-profile
+      ng g s shared/vote
+    
+      # Build and deploy
+      ng build --configuration production
 
 
  # Deployment: 
@@ -23,23 +61,17 @@
 
 -  Use CloudFront: free HTTPS, cached system and Cloudfront edge locations world wide.
   
-    https://d26q31pmxe2fsg.cloudfront.net/
-   
+          
 -  AWS S3
   
-    http://james-bucket-s3-social-media.s3-website.eu-west-2.amazonaws.com/
-
-
-
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 # Sign up
 <img width="1280" alt="Screenshot 2023-08-16 at 12 33 27" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/08268e0f-3b04-484d-98fa-7762e5f2d113">
-<img width="954" alt="2" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/80f05399-74e1-40cf-910c-f7a2a6b37d4a">
-<img width="1280" alt="3" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/fbdea380-6cc4-4919-80a7-d8914ba9d11d">
+
+<img width="954" alt="image" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/40441b38-2d26-4693-af81-0f3d3f1c2e45">
+
+<img width="1280" alt="image" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/9c810a5b-452b-48cc-b191-c91228db242d">
+
 
 
 

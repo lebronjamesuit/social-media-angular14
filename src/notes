@@ -1,16 +1,7 @@
 
-# Install CLI
-sudo npm install -g @angular/cli@14.2.12
+  # Install CLI
+  sudo npm install -g @angular/cli@14.2.12
 
-#Component and service
-ng g c header
-ng g c auth/signup
-ng generate service auth/shared/auth 
-ng generate c auth/login
-ng g c home
-ng generate service shared/post
-
-# Install Components from NPM
 
   # LocalStorage
   sudo npm install --save ngx-webstorage --legacy-peer-deps
@@ -20,17 +11,33 @@ ng generate service shared/post
   sudo npm install @angular/animations --save --force
 
 
-# Font
-sudo npm install @fortawesome/fontawesome-svg-core --force
-sudo npm install @fortawesome/free-solid-svg-icons --force
-sudo npm i @fortawesome/angular-fontawesome@0.11.1 --force
+  # Font
+  sudo npm install @fortawesome/fontawesome-svg-core --force
+  sudo npm install @fortawesome/free-solid-svg-icons --force
+  sudo npm i @fortawesome/angular-fontawesome@0.11.1 --force
+  sudo npm install --save  @ng-bootstrap/ng-bootstrap --force
+  npm install --save @tinymce/tinymce-angular
+  ng add @angular/localize
 
-ng g c shared/post-tile
-ng g c shared/vote-button
-ng g c shared/side-bar
-ng g c shared/subreddit-side-bar
 
-ng g s subreddit/subreddit
+  #Component and service
+  ng g c header
+  ng g c auth/signup
+  ng generate service auth/shared/auth 
+  ng generate c auth/login
+  ng g c home
+  ng generate service shared/post
+  ng g c shared/post-tile
+  ng g c shared/vote-button
+  ng g c shared/side-bar
+  ng g c shared/subreddit-side-bar
+  ng g s subreddit/subreddit
+  ng g c subreddit/create-subreddit
+  ng g c post/create-post
+  ng g component post/view-post
+  ng g s comment/comment
+  ng g c auth/user-profile
+  ng g s shared/vote
 
-ng g c subreddit/create-subreddit
-ng g c post/create-post
+  # Build and deploy
+  ng build --configuration production

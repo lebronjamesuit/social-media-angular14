@@ -1,9 +1,9 @@
 export interface LoginResponsePayload {
 
-    accessToken: String,
-    refreshToken: String,
+    accessToken: string,
+    refreshToken: string,
     accessTokenExpiresAt: Date,
     refreshTokenExpiresAt: Date,
-    username: String
+    username: string
 
 }
