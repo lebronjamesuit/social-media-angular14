@@ -15,11 +15,10 @@ export class PostTileComponent implements OnInit {
   @Input() posts$!: PostModel[];
 
   constructor(private router: Router) { 
-    console.log('constructor ' + this.posts$ )
+   
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit ' + this.posts$ )
     this.posts$.forEach( x => console.log("PostTileComponent ID is " +  x.id));
   }
 
