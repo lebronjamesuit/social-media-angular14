@@ -1,5 +1,11 @@
 # ConfessionAngular -  Angular CLI version 14.2.12.
 
+    d26q31pmxe2fsg.cloudfront.net
+    Guest account:  username / password  =>   user1 / user1password
+
+Please note that: 
+-   CloundFront use Amazon SSL Certificate
+-   Backend use Self-sign SSL Certificate
 
 ## Code scaffolding
 
@@ -55,18 +61,17 @@
 
 -  Use CloudFront: free HTTPS, cached system and Cloudfront edge locations world wide.
   
-        https://d26q31pmxe2fsg.cloudfront.net/
-    
-        username/password: user1 / user1password
-
-   
+          
 -  AWS S3
   
 
 # Sign up
 <img width="1280" alt="Screenshot 2023-08-16 at 12 33 27" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/08268e0f-3b04-484d-98fa-7762e5f2d113">
-<img width="954" alt="2" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/80f05399-74e1-40cf-910c-f7a2a6b37d4a">
-<img width="1280" alt="3" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/fbdea380-6cc4-4919-80a7-d8914ba9d11d">
+
+<img width="954" alt="image" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/40441b38-2d26-4693-af81-0f3d3f1c2e45">
+
+<img width="1280" alt="image" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/9c810a5b-452b-48cc-b191-c91228db242d">
+
 
 
 
