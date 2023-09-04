@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, first, firstValueFrom } from 'rxjs';
 import { PostModel } from './post-model';
 import { CreatePostPayload } from '../post/create-post/create-post-payload';
@@ -22,6 +22,27 @@ export class PostService {
     var url = this.hostPort + "/api/v1/posts";
     return this.http.get<Array<PostModel>>(url);
   }
+
+  getNumberOfPosts(): Observable<number> {
+    var url = this.hostPort + "/api/v1/posts/count";
+    return this.http.get<number>(url);
+  }
+
+
+
+  getPostsByPageSize(page: number, size: number, sort: string ): Observable<Array<PostModel>> {
+    var url = this.hostPort + "/api/v1/posts/page";
+   
+    const options = { 
+      params: new HttpParams().set('page', page)
+                              .set('size',size)
+                              .set('sort',sort)
+    } ;
+   
+
+    return this.http.get<PostModel[]>(url, options);
+  }
+
 
   createPost(postPayload: CreatePostPayload): Observable<any> {
     return this.http.post(this.hostPort+ '/api/v1/posts', postPayload);

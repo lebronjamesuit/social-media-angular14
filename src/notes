@@ -18,7 +18,7 @@
   sudo npm install --save  @ng-bootstrap/ng-bootstrap --force
   npm install --save @tinymce/tinymce-angular
   ng add @angular/localize
-
+  npm install ngx-pagination --save   // (Angular 13+, version 6.0+)
 
   #Component and service
   ng g c header

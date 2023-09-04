@@ -25,6 +25,8 @@ import { EditorModule } from '@tinymce/tinymce-angular';
 import { ViewPostComponent } from './post/view-post/view-post.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UserProfileComponent } from './auth/user-profile/user-profile.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { TestAnyThingComponent } from './test-any-thing/test-any-thing.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { UserProfileComponent } from './auth/user-profile/user-profile.component
     ListSubredditsComponent,
     ViewPostComponent,
     UserProfileComponent,
+    TestAnyThingComponent,
    
   ],
   imports: [
@@ -54,7 +57,8 @@ import { UserProfileComponent } from './auth/user-profile/user-profile.component
     ToastrModule.forRoot(), // ToastrModule added
     FontAwesomeModule,
     EditorModule,
-    NgbModule
+    NgbModule,
+    NgxPaginationModule
     
   ],
   providers: [{

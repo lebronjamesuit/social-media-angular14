@@ -1,0 +1,44 @@
+
+
+<div class="row post" *ngIf="isDataLoad">
+     <div class="row post"  *ngFor=" let post of postByPage |  paginate: { id: 'server', itemsPerPage: size$, currentPage: p, totalItems: total$ }">
+   
+        <div class="col-md-1">
+          <app-vote-button [post$]="post"></app-vote-button>
+        </div>
+        <!-- Section to Display Post Information-->
+        <div class="col-md-11">
+          <span class="subreddit-info">
+            <span class="subreddit-text">
+              <a class="posturl" routerLink="">{{post.subredditName}}</a>
+            </span>
+            <span> . Posted by <a class="username" routerLink="/user/{{post.userName}}">{{post.userName}}</a></span>
+            <span> . {{post.duration}}</span>
+        </span>
+          <hr />
+          <div class="post-title">
+            <a class="postname"  (click)="goToPost(post.id)">{{post.postName}}</a>
+          </div>
+          <div>
+            <p class="post-text" [innerHtml]="post.description"></p>
+          </div>
+          <hr />
+          <span>
+            <a class="btnCommments" role="button" (click)="goToPost(post.id)" >
+              <fa-icon [icon]="faComments"></fa-icon>
+              Comments({{post.commentCount}})
+            </a>
+        
+          </span>
+        </div>
+    
+       
+      </div> <!--end paging-->
+
+      <div class="has-text-centered">
+        <pagination-controls (pageChange)="getPage($event)" id="server"></pagination-controls>
+    </div>
+</div><!--end isDataLoad-->
+
+
+

@@ -10,11 +10,18 @@ import { PostService } from '../shared/post.service';
 export class HomeComponent implements OnInit {
 
   posts$: Array<PostModel> = [];
+  total!: number;
   
   constructor(private postService: PostService) {
     this.postService.getAllPosts().subscribe(data => {
       this.posts$ = data;
     });
+ 
+    // this.postService.getNumberOfPosts()
+    // .subscribe(data => {
+    //   this.total = data;
+    // });
+
   }
 
   ngOnInit(): void {

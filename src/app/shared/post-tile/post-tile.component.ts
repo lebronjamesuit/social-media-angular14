@@ -13,9 +13,10 @@ export class PostTileComponent implements OnInit {
 
   faComments = faComments;
   @Input() posts$!: PostModel[];
-
+  p: number = 1;
+  
   constructor(private router: Router) { 
-   
+
   }
 
   ngOnInit(): void {
