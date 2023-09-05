@@ -7,7 +7,7 @@ Please note that:
 -   CloundFront use Amazon SSL Certificate
 -   Backend use Self-sign SSL Certificate
 
-## Code scaffolding
+## Modules
 
       # Nodes modules
          # Install CLI
@@ -17,7 +17,7 @@ Please note that:
       # LocalStorage
       sudo npm install --save ngx-webstorage --legacy-peer-deps
     
-      # sending notification
+      # Notification css
       sudo npm install ngx-toastr@15.2.2  --save --legacy-peer-deps
       sudo npm install @angular/animations --save --force
     
@@ -30,31 +30,11 @@ Please note that:
       npm install --save @tinymce/tinymce-angular
       ng add @angular/localize
     
-    
-      #Component and service
-      ng g c header
-      ng g c auth/signup
-      ng generate service auth/shared/auth 
-      ng generate c auth/login
-      ng g c home
-      ng generate service shared/post
-      ng g c shared/post-tile
-      ng g c shared/vote-button
-      ng g c shared/side-bar
-      ng g c shared/subreddit-side-bar
-      ng g s subreddit/subreddit
-      ng g c subreddit/create-subreddit
-      ng g c post/create-post
-      ng g component post/view-post
-      ng g s comment/comment
-      ng g c auth/user-profile
-      ng g s shared/vote
-    
       # Build and deploy
       ng build --configuration production
 
 
- # Deployment: 
+ # Deployment.
 
 <img width="618" alt="Screenshot 2023-08-16 at 12 24 29" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/4687ce21-f771-4057-a2d4-82e1e0505859">
 
