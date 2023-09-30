@@ -6,6 +6,7 @@
 Please note that: 
 -   CloundFront use Amazon SSL Certificate
 -   Backend use Self-sign SSL Certificate
+-   Endpoint source code: https://github.com/lebronjamesuit/social-media-platforms
 
 ## Modules
 
