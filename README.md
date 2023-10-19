@@ -51,8 +51,11 @@ Please note that:
 
 <img width="954" alt="image" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/40441b38-2d26-4693-af81-0f3d3f1c2e45">
 
+
 <img width="1280" alt="image" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/9c810a5b-452b-48cc-b191-c91228db242d">
 
+
+<img width="1277" alt="Screenshot 2023-10-19 at 11 29 21" src="https://github.com/lebronjamesuit/social-media-angular14/assets/11584601/34907314-c6c0-4cdf-b71f-27f6e669e0c0">
 
 
 
